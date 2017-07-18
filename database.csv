@@ -1,0 +1,12 @@
+# specifications
+# word;type;definition
+# if verb:
+#   word;type;definition;conjugaisons;i;you;he/she;we;you;they
+# if noun:
+#   word;type;definition;plural
+
+to be;verb;to be;am;are;is;are;are;are
+to test;verb;to verify if a behaviour is as expected;test
+test;noun;a verification
+I;pronoun;0
+a;article

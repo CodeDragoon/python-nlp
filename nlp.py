@@ -1,18 +1,18 @@
 #!/bin/python
 
-from memory import *
+from lexicon import *
 from sys import argv
 
 class Processor():
-  def __init__(self, memory):
-    self.memory = memory
+  def __init__(self, lexicon):
+    self.lexicon = lexicon
 
   def process(self, string):
     found = []
     unknown = []
     terms = string.strip().split(' ')
     for term in terms:
-      word = self.memory.seek(term.lower())
+      word = self.lexicon.seek(term)
       if word:
         found.append(word)
       else:
@@ -21,8 +21,9 @@ class Processor():
   
 def	main():
   string = argv[1]
-  memory = MemoryParser("database.csv").parse()
-  processor = Processor(memory)
+  string = string[:1].lower() + string[1:]
+  lexicon = LexiconParser("lexicon.csv").parse()
+  processor = Processor(lexicon)
   print(processor.process(string))
   return 0
 

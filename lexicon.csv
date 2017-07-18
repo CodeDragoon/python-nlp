@@ -1,15 +1,31 @@
-# specifications
+# -- Specifications --
+#
 # word;type;definition
 # if verb:
 #   word;type;definition;conjugaisons;i;you;he/she;we;you;they
 # if noun:
 #   word;type;definition;plural
+# if pronoun:
+#   word;type;person (0=I,1=you,2=he/she,3=we,4=you,5=they)
+# if interrogative;
+#   word;type
 
+# Verbs
 to be;verb;to be;am;are;is;are;are;are
-to test;verb;to verify if a behaviour is as expected;test
+to have;verb;to have;have;have;has;have;have;have
+
+# Nouns
 test;noun;a verification
-i;pronoun;0
+    
+# Pronouns
+I;pronoun;0
+you;pronoun;1
+
+# Articles
 a;article
+
+# Interrogative Words
+
 who;interrogative
 what;interrogative
 where;interrogative

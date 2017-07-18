@@ -3,6 +3,7 @@ from vocabulary.words import *
 class Memory():
   _memory_dict = {}
   _memory_array = []
+  _memory_by_type = {}
 
   def __init__(self):
     return
@@ -10,6 +11,17 @@ class Memory():
   def append(self, word):
     self._memory_dict[word.word] = word
     self._memory_array.append(word)
+    if word._type not in self._memory_by_type.keys():
+      self._memory_by_type[word._type] = []
+    self._memory_by_type[word._type].append(word)
+
+  def seek(self, word):
+    if word in self._memory_dict.keys():
+      return self._memory_dict[word]
+    for verb in self._memory_by_type['verb']:
+      if word in verb.conjugaison:
+        return verb
+    
 
   def __str__(self):
     output = "["

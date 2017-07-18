@@ -1,5 +1,3 @@
-
-
 class Word():
   word = ""
   _type = ""
@@ -10,6 +8,9 @@ class Word():
   def __str__(self):
     return "(%s)%s" %(self._type, self.word)
   __repr__ = __str__
+  
+class InterrogativeWord(Word):
+  _type = "interrogative"
 
 class Pronoun(Word):
   _type = "pronoun"
@@ -41,5 +42,6 @@ wordTypes = {
   "pronoun": Pronoun,
   "noun": Noun,
   "verb": Verb,
-  "article": Article
+  "article": Article,
+  "interrogative": InterrogativeWord
 }  

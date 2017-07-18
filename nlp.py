@@ -1,25 +1,29 @@
 #!/bin/python
 
 from memory import *
+from sys import argv
 
-class Tokenizer():
-  raw = ""
-  tokens = []
+class Processor():
+  def __init__(self, memory):
+    self.memory = memory
+
+  def process(self, string):
+    found = []
+    unknown = []
+    terms = string.strip().split(' ')
+    for term in terms:
+      word = self.memory.seek(term.lower())
+      if word:
+        found.append(word)
+      else:
+        unknown.append(term)
+    return found, unknown
   
-  def __init__(self, string):
-    self.raw = string
-    self.tokens = self.tokenize(string)
-
-  def tokenize(self, string):
-    words = string.split()
-    return words
-
 def	main():
-  string = "I am a test"
+  string = argv[1]
   memory = MemoryParser("database.csv").parse()
-  tokens = Tokenizer(string).tokens
-  print(memory)
-  print(tokens)
+  processor = Processor(memory)
+  print(processor.process(string))
   return 0
 
 if __name__ == '__main__':

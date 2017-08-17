@@ -2,15 +2,15 @@
 
 from lexicon import *
 from sys import argv
+from nltk.tokenize import TweetTokenizer
 
 class Processor():
   def __init__(self, lexicon):
     self.lexicon = lexicon
 
-  def process(self, string):
+  def process(self, terms):
     found = []
     unknown = []
-    terms = string.strip().split(' ')
     for term in terms:
       word = self.lexicon.seek(term)
       if word:
@@ -24,7 +24,8 @@ def	main():
   string = string[:1].lower() + string[1:]
   lexicon = LexiconParser("lexicon.csv").parse()
   processor = Processor(lexicon)
-  print(processor.process(string))
+  tokenizer = TweetTokenizer()
+  print(processor.process(tokenizer.tokenize(string)))
   return 0
 
 if __name__ == '__main__':

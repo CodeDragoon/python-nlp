@@ -12,6 +12,12 @@ class Word():
 class InterrogativeWord(Word):
   _type = "interrogative"
 
+class Adjective(Word):
+  _type = "adjective"
+  def __init__(self, terms):
+    self.word = terms[0]
+    self.definition = terms[1]
+  
 class Pronoun(Word):
   _type = "pronoun"
   def __init__(self, terms):
@@ -43,5 +49,6 @@ wordTypes = {
   "noun": Noun,
   "verb": Verb,
   "article": Article,
-  "interrogative": InterrogativeWord
+  "interrogative": InterrogativeWord,
+  "adjective": Adjective
 }  

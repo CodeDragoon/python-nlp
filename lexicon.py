@@ -1,6 +1,9 @@
 from vocabulary.words import *
 
 class Lexicon():
+  """
+  The Lexicon class contains the known vocabulary
+  """
   _as_dict = {}
   _as_array = []
   _by_type = {}
@@ -22,7 +25,6 @@ class Lexicon():
       if word in verb.conjugaison:
         return verb
     
-
   def __str__(self):
     output = "["
     for index, word in enumerate(self._as_array):
@@ -30,6 +32,9 @@ class Lexicon():
     return output
 
 class LexiconParser():
+  """
+  The LexiconParser class generates a lexicon from a filename
+  """
   filename = ""
   lexicon = Lexicon()
 

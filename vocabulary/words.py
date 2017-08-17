@@ -1,4 +1,7 @@
 class Word():
+  """
+  The word class is the generic class for every other words
+  """
   word = ""
   _type = ""
 

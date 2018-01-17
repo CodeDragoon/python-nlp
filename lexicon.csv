@@ -6,7 +6,7 @@
 # if noun:
 #   word;type;definition;plural
 # if pronoun:
-#   word;type;person (0=I,1=you,2=he/she,3=we,4=you,5=they)
+#   word;type;person=[0:'I',1:'you',2:'he/she',3:'we',4:'you',5:'they']
 # if adjective:
 #   word;definition
 # if interrogative;
